@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  tomcat:
+    accesslog:
+      directory: logs
+      enabled: true
+
+spring:
+  application:
+      name: ejk-form-engine
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    test-while-idle: true
+    test-on-borrow: true
+    validation-query: select 1
+  data:
+    elasticsearch:
+      form-index-name: form-engine
+      service-url: ${elasticsearch.server-url}
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  output:
+    ansi:
+      enabled: DETECT
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8080/eureka/
+version: 1.0.0
